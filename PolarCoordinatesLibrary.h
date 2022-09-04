@@ -1,11 +1,10 @@
-// Spyridon Zervos ©
+// (c) Spyridon Zervos
 
 
 #pragma once
 
 #include <string>
-
-class ComplexNumber;
+#include <utility>
 
 class PolarCoordinate
 {
@@ -85,9 +84,9 @@ public:
     /**
      * @brief Conversion of Polar to Cartesian coordinates.
      * 
-     * @return ComplexNumber 
+     * @return A pair of doubls symbolizing Cartesian coordinates.
      */
-    ComplexNumber ToCartesianCoordinates() const;
+    std::pair<double, double> ToCartesianCoordinates() const;
 
     std::string ToString() const;
 };

@@ -4,7 +4,8 @@
 #pragma once
 
 #include <string>
-#include "PolarCoordinatesLibrary.h"
+
+class PolarCoordinate;
 
 /**
  * @brief Implements and provides the basic functionality for Complex numbers. It also 
@@ -36,7 +37,7 @@ private:
      * @brief The Polar form of the Complex.
      * 
      */
-    PolarCoordinate _polarForm;
+    PolarCoordinate* _polarForm;
 
 public:
 

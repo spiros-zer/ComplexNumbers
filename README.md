@@ -1,6 +1,6 @@
 # ComplexNumbersLibrary
-### CompleNumbersLibrary provides a way to implement the concept of a Compoex number through an Object. ###
-The library currently uses double as its go to type.
+### CompleNumbersLibrary provides a way to implement the concept of a Complex number through an Object. ###
+>The library currently uses double as its go to type.
 ### Methods ###
 ```
 + Addition Operator Overloading.

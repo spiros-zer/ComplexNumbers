@@ -1,8 +1,8 @@
-// Spyridon Zervos ©
+// (c) Spyridon Zervos
 
 
 #include "PolarCoordinatesLibrary.h"
-#include "ComplexNumbersLibrary.h"
+
 #include <cmath>
 #include <sstream>
 
@@ -20,7 +20,12 @@ PolarCoordinate::PolarCoordinate(double InRadius, double InAngle)
 
 PolarCoordinate PolarCoordinate::operator+(const PolarCoordinate& X)
 {
-    return {(this->ToCartesianCoordinates() + X.ToCartesianCoordinates()).ToPolarForm()};
+    std::pair<double, double> CartesianCoordinates = this->ToCartesianCoordinates();
+    std::pair<double, double> InCartesianCoordinates = X.ToCartesianCoordinates();
+    std::pair<double, double> Sum = {CartesianCoordinates.first + InCartesianCoordinates.first,
+                                      CartesianCoordinates.second + InCartesianCoordinates.second};
+    return {std::sqrt((std::pow(Sum.first, 2) + std::pow(Sum.second, 2))),
+            std::atan(Sum.second / Sum.first) * 180 / 3.1415};
 }
 
 PolarCoordinate PolarCoordinate::operator-(const PolarCoordinate& X)
@@ -53,7 +58,7 @@ double PolarCoordinate::GetAngle() const
     return _angle;
 }
 
-ComplexNumber PolarCoordinate::ToCartesianCoordinates() const
+std::pair<double, double> PolarCoordinate::ToCartesianCoordinates() const
 {
     return {_radius * std::cos(_angle), _radius * std::sin(_angle)};
 }

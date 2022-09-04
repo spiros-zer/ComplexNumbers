@@ -2,14 +2,10 @@
 
 
 #include "ComplexNumbersLibrary.h"
+
 #include "PolarCoordinatesLibrary.h"
 #include <cmath>
 #include <sstream>
-
-#define DEBUG
-#ifdef DEBUG
-#include <iostream>
-#endif
 
 ComplexNumber::ComplexNumber()
 {
@@ -17,11 +13,7 @@ ComplexNumber::ComplexNumber()
     _imag = 0;
 
     _absoluteValue = 0;
-    _polarForm = {0, 0};
-
-#ifdef DEBUG
-    std::cout << "\n\033[4m>Default Constructor of ComplexNumber used.\033[0m" << std::endl;
-#endif
+    _polarForm = new PolarCoordinate{};
 }
 
 ComplexNumber::ComplexNumber(const double& RealPart, const double& ImaginaryPart)
@@ -30,11 +22,7 @@ ComplexNumber::ComplexNumber(const double& RealPart, const double& ImaginaryPart
     _imag = ImaginaryPart;
 
     _absoluteValue = std::sqrt((std::pow(RealPart, 2) + std::pow(ImaginaryPart, 2)));
-    _polarForm = {this->ToPolarForm()};
-
-#ifdef DEBUG
-    std::cout << "\n\033[4m>User defined Constructor of ComplexNumber used.\033[0m" << std::endl;
-#endif
+    _polarForm = new PolarCoordinate{this->ToPolarForm()};
 }
 
 ComplexNumber ComplexNumber::operator+(const ComplexNumber& X)

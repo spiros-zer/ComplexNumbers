@@ -1,3 +1,9 @@
 /.vscode
+/x64
+/*.sln
+/*.vcxproj
+/*.vcxproj.filters
+/*.vcxproj.user
+
 /PolarCoordinateslibrary.exe
 /TestProgram.exe
