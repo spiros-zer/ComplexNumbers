@@ -61,13 +61,6 @@ public:
     PolarCoordinate operator/(const PolarCoordinate& X);
 
     /**
-     * @brief Returns the Radius.
-     * 
-     * @return double The Radius of the Polar Number.
-     */
-    double Abs() const;
-
-    /**
      * @brief Get the Radius object.
      * 
      * @return double _radius.
@@ -84,9 +77,14 @@ public:
     /**
      * @brief Conversion of Polar to Cartesian coordinates.
      * 
-     * @return A pair of doubls symbolizing Cartesian coordinates.
+     * @return A pair of doubles symbolizing Cartesian coordinates.
      */
     std::pair<double, double> ToCartesianCoordinates() const;
 
+    /**
+     * @brief Converts the Polar coordinates to a std::string.
+     *
+     * @return std::string The Polar in literal format.
+     */
     std::string ToString() const;
 };

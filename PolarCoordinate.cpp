@@ -1,7 +1,7 @@
 // (c) Spyridon Zervos
 
 
-#include "PolarCoordinatesLibrary.h"
+#include "PolarCoordinate.h"
 
 #include <cmath>
 #include <sstream>
@@ -41,11 +41,6 @@ PolarCoordinate PolarCoordinate::operator*(const PolarCoordinate& X)
 PolarCoordinate PolarCoordinate::operator/(const PolarCoordinate& X)
 {
     return {_radius / X.GetRadius(), _angle - X.GetAngle()};
-}
-
-double PolarCoordinate::Abs() const
-{
-    return _radius;
 }
 
 double PolarCoordinate::GetRadius() const

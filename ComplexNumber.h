@@ -9,7 +9,7 @@ class PolarCoordinate;
 
 /**
  * @brief Implements and provides the basic functionality for Complex numbers. It also 
- * implements the Polar form for the Complex alongside functionalities for it.
+ * implements the Polar form for the Complex.
  */
 class ComplexNumber
 {

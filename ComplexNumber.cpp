@@ -1,9 +1,9 @@
 // Spyridon Zervos ©
 
 
-#include "ComplexNumbersLibrary.h"
+#include "ComplexNumber.h"
 
-#include "PolarCoordinatesLibrary.h"
+#include "PolarCoordinate.h"
 #include <cmath>
 #include <sstream>
 
