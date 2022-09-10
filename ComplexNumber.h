@@ -85,6 +85,8 @@ public:
      */
     ComplexNumber operator/(const ComplexNumber& X);
 
+    bool operator==(const ComplexNumber& X);
+
     /**
      * @brief Calculates the conjugate.
      * 

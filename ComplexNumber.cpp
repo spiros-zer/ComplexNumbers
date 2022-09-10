@@ -52,6 +52,15 @@ ComplexNumber ComplexNumber::operator/(const ComplexNumber& X)
             (_imag * X.GetReal() - _real * X.GetImag()) / (std::pow(X.GetReal(), 2) + std::pow(X.GetImag(), 2))};
 }
 
+bool ComplexNumber::operator==(const ComplexNumber& X)
+{
+    if (this->_real == X.GetReal() && this->_imag == X.GetImag())
+    {
+        return true;
+    }
+    return false;
+}
+
 ComplexNumber ComplexNumber::Conjugate()
 {
     return {_real, -_imag};
