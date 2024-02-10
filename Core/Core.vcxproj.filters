@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CartesianCoordinates">
+      <UniqueIdentifier>{3AD428A8-2663-B271-CF81-C66CBBEFC217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CartesianCoordinates\App">
+      <UniqueIdentifier>{6A4AA77C-566F-F6FC-7FBA-DB8C6B3EF51A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CartesianCoordinates\App\Source">
+      <UniqueIdentifier>{2A3D3AA1-9620-49E1-9F23-771D0B860F32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CartesianCoordinates\Core">
+      <UniqueIdentifier>{D2AC9111-3E6F-C59B-871F-5428F3209E79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CartesianCoordinates\Core\Source">
+      <UniqueIdentifier>{92DA2079-7E2B-0CBB-A78F-FA7C933F9F24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CartesianCoordinates\Core\Source\Core">
+      <UniqueIdentifier>{2A6AC309-962E-C2F9-5F94-F2C3CB175E2F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters">
+      <UniqueIdentifier>{B09DF1B9-9C55-3307-055D-0C63F133CEF7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters\App">
+      <UniqueIdentifier>{E0DE0370-CCAC-F775-B540-689CA1ADD3DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters\App\Source">
+      <UniqueIdentifier>{E07080AA-4CDD-3BA5-15D1-D30281FC5D0D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters\Core">
+      <UniqueIdentifier>{08D08070-745B-EE34-7D6C-7129E9764A35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters\Core\Source">
+      <UniqueIdentifier>{08852DAB-F47E-56FD-DDEB-EC0DC984BC69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters\Core\Source\Core">
+      <UniqueIdentifier>{600E8B03-CC1B-B9E9-5502-B5D4C10E85A0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolarCoordinates">
+      <UniqueIdentifier>{7EACA3A6-6AA5-C2F8-93D7-A77D7F2FA204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolarCoordinates\App">
+      <UniqueIdentifier>{AEA49C71-9A33-263B-4352-3A362FC036E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolarCoordinates\App\Source">
+      <UniqueIdentifier>{EEE2E2B6-5AF0-109D-E3D6-0C884FE3DC53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolarCoordinates\Core">
+      <UniqueIdentifier>{964F32A5-02BC-ED9F-CBAF-85FD37DB0F08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolarCoordinates\Core\Source">
+      <UniqueIdentifier>{D638DE43-C2F3-CDEF-6BAB-463A57451880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PolarCoordinates\Core\Source\Core">
+      <UniqueIdentifier>{EE522AF6-5AC1-7F75-A3AA-3A750F587511}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\CartesianCoordinates\Core\Source\Core\CartesianCoordinates.h">
+      <Filter>CartesianCoordinates\Core\Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Converters\Core\Source\Core\Double2Cstring.h">
+      <Filter>Converters\Core\Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\ComplexNumber.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PolarCoordinates\Core\Source\Core\PolarCoordinates.h">
+      <Filter>PolarCoordinates\Core\Source\Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\CartesianCoordinates\App\Source\CartesianCoordinatesTest.cpp">
+      <Filter>CartesianCoordinates\App\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CartesianCoordinates\Core\Source\Core\CartesianCoordinates.cpp">
+      <Filter>CartesianCoordinates\Core\Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Converters\App\Source\ConvertersTest.cpp">
+      <Filter>Converters\App\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Converters\Core\Source\Core\Double2Cstring.cpp">
+      <Filter>Converters\Core\Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\ComplexNumber.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PolarCoordinates\App\Source\PolarCoordinatesTest.cpp">
+      <Filter>PolarCoordinates\App\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PolarCoordinates\Core\Source\Core\PolarCoordinate.cpp">
+      <Filter>PolarCoordinates\Core\Source\Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
