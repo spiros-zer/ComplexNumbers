@@ -4,51 +4,88 @@
 #include <cmath>
 #include <sstream>
 
-#include "ComplexNumber.h"
-#include "PolarCoordinates/Core/Source/Core/PolarCoordinates.h"
-#include "CartesianCoordinates/Core/Source/Core/CartesianCoordinates.h"
+#include "ComplexNumbers.h"
+#include "CartesianCoordinates/CartesianCoordinates2D.h"
+#include "PolarCoordinates/PolarCoordinates.h"
 
-ComplexNumbers::ComplexNumbers(const double& RealPart, const double& ImaginaryPart)
+ComplexNumbers::ComplexNumbers(const double& lhs, const double& rhs, bool bIsPolar)
 {
-    Complex = new<CartesianCoordinates>();
+    if (bIsPolar)
+    {
+        PolarForm = new PolarCoordinates(lhs, rhs);
+        ToCartesian();
+    }
+    else
+    {
+        Complex = new CartesianCoordinates2D(lhs, rhs);
+        ToPolar();
+    }
 }
 
 ComplexNumbers::ComplexNumbers() : ComplexNumbers(0, 0) {}
 
-ComplexNumbers ComplexNumbers::operator*(const ComplexNumbers& X)
+ComplexNumbers ComplexNumbers::operator*(const ComplexNumbers& X) const
 {
-    return {_real * X.GetReal() - _imag * X.GetImag(), 
-            _real * X.GetImag() + _imag * X.GetReal()};
+    return {Complex->GetX() * X.Complex->GetX() - Complex->GetY() * X.Complex->GetY(), 
+            Complex->GetX() * X.Complex->GetY() + Complex->GetY() * X.Complex->GetX()};
 }
 
-ComplexNumbers ComplexNumbers::operator*(const double& Num)
+ComplexNumbers ComplexNumbers::operator/(const double& Num)
 {
-    return {Num * _real, Num * _imag};
 }
 
-ComplexNumbers ComplexNumbers::operator/(const ComplexNumbers& X)
+ComplexNumbers ComplexNumbers::operator*(const double& InNum) const
 {
-    return {(_real * X.GetReal() + _imag * X.GetImag()) / (std::pow(X.GetReal(), 2) + std::pow(X.GetImag(), 2)),
-            (_imag * X.GetReal() - _real * X.GetImag()) / (std::pow(X.GetReal(), 2) + std::pow(X.GetImag(), 2))};
+    return {Complex->GetX() * InNum, Complex->GetY() * InNum};
 }
 
-bool ComplexNumbers::operator==(const ComplexNumbers& X)
+ComplexNumbers ComplexNumbers::operator/(const ComplexNumbers& X) const
 {
-    if (this->_real == X.GetReal() && this->_imag == X.GetImag())
+    return {(Complex->GetX() * X.Complex->GetX()) / (std::pow(X.Complex->GetX(), 2) + std::pow(X.Complex->GetY(), 2)),
+            (Complex->GetX() * X.Complex->GetX() - Complex->GetX() * X.Complex->GetY()) / (std::pow(X.Complex->GetX(), 2) + std::pow(X.Complex->GetY(), 2))};
+}
+
+bool ComplexNumbers::operator==(const ComplexNumbers& X) const
+{
+    if (Complex->GetX() == X.Complex->GetX() && Complex->GetY() == X.Complex->GetY())
     {
         return true;
     }
     return false;
 }
 
-PolarCoordinate ComplexNumbers::ToPolarForm()
+ComplexNumbers ComplexNumbers::operator+(const double& InNum) const
 {
-    return {this->GetAbs(), std::atan(_imag / _real) * 180 / 3.1415};
+    return {Complex->GetX() + InNum, Complex->GetY()};
+}
+
+ComplexNumbers ComplexNumbers::operator+(const ComplexNumbers& X) const
+{
+    return {};
+}
+
+ComplexNumbers ComplexNumbers::operator-(const double& InNum) const
+{
+}
+
+ComplexNumbers ComplexNumbers::operator-(const ComplexNumbers& X) const
+{
+}
+
+void ComplexNumbers::ToCartesian()
+{
+    Complex = new CartesianCoordinates2D(PolarForm->GetRadius() * std::cos(PolarForm->GetTheta()), PolarForm->GetRadius() * std::sin(PolarForm->GetTheta()));
+}
+
+
+void ComplexNumbers::ToPolar()
+{
+    PolarForm = new PolarCoordinates(Complex->GetModulus(), std::atan(Complex->GetY() / Complex->GetX()) * 180 / 3.1415);
 }
 
 std::string ComplexNumbers::ToString() const
 {
     std::ostringstream OutputStringStream;
-    OutputStringStream << _real << "" << (_imag >= 0 ?  "+" : "") << _imag << "i";
+    OutputStringStream << Complex->GetX() << "" << (Complex->GetY() >= 0 ?  "+" : "") << Complex->GetY() << "i";
     return OutputStringStream.str();
 }

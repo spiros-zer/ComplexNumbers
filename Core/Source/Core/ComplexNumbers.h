@@ -6,7 +6,7 @@
 #include <string>
 
 struct PolarCoordinates;
-struct CartesianCoordinates;
+struct CartesianCoordinates2D;
 
 /**
  * @brief Implements and provides the basic functionality for Complex numbers. It also 
@@ -15,27 +15,36 @@ struct CartesianCoordinates;
 struct ComplexNumbers
 {
     /** @brief Complex in the form of x+jb. The x holds the real, while the y holds the imaginary part. */
-    CartesianCoordinates* Complex;
+    CartesianCoordinates2D* Complex;
 
     /** @brief The Polar form of the Complex. */
     PolarCoordinates* PolarForm;
  
     /**** CONSTRUCTORS/DESTRUCTORS */
-    ComplexNumbers(const double& RealPart, const double& ImaginaryPart);
+    ComplexNumbers(const double& lhs, const double& rhs, bool bIsPolar = false);
     ComplexNumbers();
  
     /**** OPERATOR OVERLOADING */
-    bool operator==(const ComplexNumbers& X);
+    bool operator==(const ComplexNumbers& X) const;
+    /** @brief Addition with real num */
+    ComplexNumbers operator+(const double& InNum) const;
+    ComplexNumbers operator+(const ComplexNumbers& X) const;
+    /** @brief Subtraction with real num */
+    ComplexNumbers operator-(const double& InNum) const;
+    ComplexNumbers operator-(const ComplexNumbers& X) const;
     /** @brief Multiplication with num. */
-    ComplexNumbers operator*(const double& Num);
-    ComplexNumbers operator*(const ComplexNumbers& X);
+    ComplexNumbers operator*(const double& InNum) const;
+    ComplexNumbers operator*(const ComplexNumbers& X) const;
     /** @brief Division with num. */
     ComplexNumbers operator/(const double& Num);
-    ComplexNumbers operator/(const ComplexNumbers& X);
+    ComplexNumbers operator/(const ComplexNumbers& X) const;
+    
+    /** @brief Transforms polar to cartesian coordinates. */
+    void ToCartesian();
+    /** @brief Transforms cartesian to polar coordinates. */
+    void ToPolar();
 
-    /** @brief Transforms the Complex Number from Cartesian to Polar coordinates. */
-    PolarCoordinates ToPolarForm();
-
+    /**** STRING OPERATIONS */
     /** @brief Converts the Complex number to a std::string.*/
     std::string ToString() const;
 };
