@@ -1,0 +1,9 @@
+[submodule "Core/Source/PolarCoordinates"]
+	path = Core/Source/PolarCoordinates
+	url = https://github.com/spiros-zer/PolarCoordinates.git
+[submodule "Core/Source/CartesianCoordinates"]
+	path = Core/Source/CartesianCoordinates
+	url = https://github.com/spiros-zer/CartesianCoordinates.git
+[submodule "Core/Source/Converters"]
+	path = Core/Source/Converters
+	url = https://github.com/spiros-zer/Converters.git
