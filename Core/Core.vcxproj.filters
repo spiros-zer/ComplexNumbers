@@ -60,13 +60,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\CartesianCoordinates\Core\Source\Core\CartesianCoordinates.h">
+    <ClInclude Include="Source\CartesianCoordinates\Core\Source\Core\CartesianCoordinates2D.h">
       <Filter>CartesianCoordinates\Core\Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Converters\Core\Source\Core\Double2Cstring.h">
       <Filter>Converters\Core\Source\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\ComplexNumber.h">
+    <ClInclude Include="Source\Core\ComplexNumbers.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\PolarCoordinates\Core\Source\Core\PolarCoordinates.h">
@@ -77,7 +77,7 @@
     <ClCompile Include="Source\CartesianCoordinates\App\Source\CartesianCoordinatesTest.cpp">
       <Filter>CartesianCoordinates\App\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CartesianCoordinates\Core\Source\Core\CartesianCoordinates.cpp">
+    <ClCompile Include="Source\CartesianCoordinates\Core\Source\Core\CartesianCoordinates2D.cpp">
       <Filter>CartesianCoordinates\Core\Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Converters\App\Source\ConvertersTest.cpp">
@@ -86,7 +86,7 @@
     <ClCompile Include="Source\Converters\Core\Source\Core\Double2Cstring.cpp">
       <Filter>Converters\Core\Source\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\ComplexNumber.cpp">
+    <ClCompile Include="Source\Core\ComplexNumbers.cpp">
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\PolarCoordinates\App\Source\PolarCoordinatesTest.cpp">
