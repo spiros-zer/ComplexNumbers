@@ -22,6 +22,7 @@ ComplexNumbers::ComplexNumbers(const double& lhs, const double& rhs, bool bIsPol
         Complex = new CartesianCoordinates2D(lhs, rhs);
         ToPolar();
     }
+    Cstring = ToString(Size);
 }
 
 ComplexNumbers::ComplexNumbers() : ComplexNumbers(0, 0) {}
@@ -103,16 +104,48 @@ std::string ComplexNumbers::ToString() const
 
 char* ComplexNumbers::ToString(int& InSize, int Precision)
 {
-    //(x,y)\0 - x+iy\0
-    Size = Complex->GetCstringSize() - /*comma*/ 1;
-    Cstring = new char[Size];
-
-    int i{0};
-    for (; i < Size; i++)
+    int CommaPos{0};
+    bool bIsPositive{false};
+    
+    for (int i = 0; i < Complex->GetCstringSize(); i++)
     {
-        
+        if (Complex->GetCstring()[i] == ',')
+        {
+            CommaPos = i;
+            if (Complex->GetCstring()[i+1] != '-')
+                bIsPositive = true;
+            break;
+        }
     }
-    return Cstring;
+    
+    InSize = Complex->GetCstringSize() - /*parenthesis*/ 2 - /*comma*/ 1 + /*i*/ 1 + (bIsPositive ? 1 : 0);
+    char* Result = new char[InSize];
+
+    int j{1};
+    for (int i = 0; i < InSize; i++)
+    {
+        if (j == CommaPos)
+        {
+            j++;
+            if (bIsPositive)
+            {
+                Result[i++] = '+';
+            }
+            else
+            {
+                j++;
+                Result[i++] = '-';
+            }
+            Result[i] = 'i';
+        }
+        else
+        {
+            if (Complex->GetCstring()[j] == ')')
+                j++;
+            Result[i] = Complex->GetCstring()[j++];
+        }
+    }
+    return Result;
 }
 
 void ComplexNumbers::Print() const

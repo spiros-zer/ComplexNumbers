@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     std::cout << "Test 1: Initialization of a Complex." << '\n';
     ComplexNumbers A = { 3, 1 };
     std::cout << "A = ";
-    A.Complex->Print();
+    A.Print();
     std::cout << '\n';
     std::cout << "Polar form of A = ";
     A.PolarForm->Print();
@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 
     ComplexNumbers B = { 4, -5 };
     std::cout << "B = ";
-    B.Complex->Print();
+    B.Print();
     std::cout << '\n';
     std::cout << "Polar form of B = ";
     B.PolarForm->Print();
@@ -33,7 +33,7 @@ int main(int argc, char** argv)
     
     ComplexNumbers C = (A + B) * 2;
     std::cout << "C = (A + B) * 2 = ";
-    C.Complex->Print();
+    C.Print();
     std::cout << '\n';
     std::cout << "Polar form of C = ";
     C.PolarForm->Print();
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
 
     ComplexNumbers D = ComplexNumbers{ 1, 2 } / ComplexNumbers{ 0.5, -0.1 };
     std::cout << "D = (1+2i)/(0.5-i) = ";
-    D.Complex->Print();
+    D.Print();
     std::cout << '\n';
     std::cout << "Polar form of D = ";
     D.PolarForm->Print();
@@ -49,7 +49,7 @@ int main(int argc, char** argv)
 
     ComplexNumbers E = C - D;
     std::cout << "E = C - D = ";
-    E.Complex->Print();
+    E.Print();
     std::cout << '\n';
     std::cout << "Polar form of E = ";
     E.PolarForm->Print();
@@ -58,7 +58,7 @@ int main(int argc, char** argv)
     std::cout << "\nTest 3: Initialization of Polar Coordinates." << '\n';
     ComplexNumbers W = {1, 90, true};
     std::cout << "W = ";
-    W.Complex->Print();
+    W.Print();
     std::cout << '\n';
     std::cout << "Polar form of W = ";
     W.PolarForm->Print();
