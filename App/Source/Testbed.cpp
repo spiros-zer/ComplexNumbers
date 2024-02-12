@@ -28,7 +28,9 @@ int main(int argc, char** argv)
     B.PolarForm->Print();
     std::cout << '\n';
 
-    std::cout << "\nTest 2: Operations between Complexes." << '\n';
+    std::cout << '\n';
+    std::cout << "Test 2: Operations between Complexes." << '\n';
+    
     ComplexNumbers C = (A + B) * 2;
     std::cout << "C = (A + B) * 2 = ";
     C.Complex->Print();
@@ -40,7 +42,7 @@ int main(int argc, char** argv)
     ComplexNumbers D = ComplexNumbers{ 1, 2 } / ComplexNumbers{ 0.5, -0.1 };
     std::cout << "D = (1+2i)/(0.5-i) = ";
     D.Complex->Print();
-    std::cout << '\0';
+    std::cout << '\n';
     std::cout << "Polar form of D = ";
     D.PolarForm->Print();
     std::cout << '\n';
@@ -58,6 +60,7 @@ int main(int argc, char** argv)
     std::cout << "W = ";
     W.Complex->Print();
     std::cout << '\n';
+    std::cout << "Polar form of W = ";
     W.PolarForm->Print();
     std::cout << '\n';
 

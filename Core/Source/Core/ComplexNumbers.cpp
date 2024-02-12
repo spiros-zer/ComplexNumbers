@@ -3,8 +3,10 @@
 
 #include <cmath>
 #include <sstream>
+#include <iostream>
 
 #include "ComplexNumbers.h"
+
 #include "CartesianCoordinates/CartesianCoordinates2D.h"
 #include "PolarCoordinates/PolarCoordinates.h"
 
@@ -24,14 +26,19 @@ ComplexNumbers::ComplexNumbers(const double& lhs, const double& rhs, bool bIsPol
 
 ComplexNumbers::ComplexNumbers() : ComplexNumbers(0, 0) {}
 
+ComplexNumbers::ComplexNumbers(const CartesianCoordinates2D& InCoords) : ComplexNumbers(InCoords.GetX(), InCoords.GetY()){}
+
+ComplexNumbers::ComplexNumbers(const PolarCoordinates& InCoords) : ComplexNumbers(InCoords.GetRadius(), InCoords.GetTheta(), true){}
+
 ComplexNumbers ComplexNumbers::operator*(const ComplexNumbers& X) const
 {
     return {Complex->GetX() * X.Complex->GetX() - Complex->GetY() * X.Complex->GetY(), 
             Complex->GetX() * X.Complex->GetY() + Complex->GetY() * X.Complex->GetX()};
 }
 
-ComplexNumbers ComplexNumbers::operator/(const double& Num)
+ComplexNumbers ComplexNumbers::operator/(const double& InNum) const
 {
+    return {Complex->GetX() / InNum, Complex->GetY() / InNum};
 }
 
 ComplexNumbers ComplexNumbers::operator*(const double& InNum) const
@@ -61,15 +68,19 @@ ComplexNumbers ComplexNumbers::operator+(const double& InNum) const
 
 ComplexNumbers ComplexNumbers::operator+(const ComplexNumbers& X) const
 {
-    return {};
+    ComplexNumbers* Result = new ComplexNumbers(*Complex + *X.Complex);
+    return {*Result};
 }
 
 ComplexNumbers ComplexNumbers::operator-(const double& InNum) const
 {
+    return {Complex->GetX() - InNum, Complex->GetY()};
 }
 
 ComplexNumbers ComplexNumbers::operator-(const ComplexNumbers& X) const
 {
+    ComplexNumbers* Result = new ComplexNumbers(*Complex - *X.Complex);
+    return {*Result};
 }
 
 void ComplexNumbers::ToCartesian()
@@ -88,4 +99,26 @@ std::string ComplexNumbers::ToString() const
     std::ostringstream OutputStringStream;
     OutputStringStream << Complex->GetX() << "" << (Complex->GetY() >= 0 ?  "+" : "") << Complex->GetY() << "i";
     return OutputStringStream.str();
+}
+
+char* ComplexNumbers::ToString(int& InSize, int Precision)
+{
+    //(x,y)\0 - x+iy\0
+    Size = Complex->GetCstringSize() - /*comma*/ 1;
+    Cstring = new char[Size];
+
+    int i{0};
+    for (; i < Size; i++)
+    {
+        
+    }
+    return Cstring;
+}
+
+void ComplexNumbers::Print() const
+{
+    for (int i = 0; i < Size; ++i)
+    {
+        std::cout << Cstring[i];
+    }
 }

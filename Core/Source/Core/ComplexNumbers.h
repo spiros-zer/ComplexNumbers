@@ -19,9 +19,17 @@ struct ComplexNumbers
 
     /** @brief The Polar form of the Complex. */
     PolarCoordinates* PolarForm;
+
+    /** @brief Array containing the complex number. */
+    char* Cstring{};
+
+    /** @brief Size of the array. */
+    int Size{0};
  
     /**** CONSTRUCTORS/DESTRUCTORS */
     ComplexNumbers(const double& lhs, const double& rhs, bool bIsPolar = false);
+    ComplexNumbers(const CartesianCoordinates2D& InCoords);
+    ComplexNumbers(const PolarCoordinates& InCoords);
     ComplexNumbers();
  
     /**** OPERATOR OVERLOADING */
@@ -36,7 +44,7 @@ struct ComplexNumbers
     ComplexNumbers operator*(const double& InNum) const;
     ComplexNumbers operator*(const ComplexNumbers& X) const;
     /** @brief Division with num. */
-    ComplexNumbers operator/(const double& Num);
+    ComplexNumbers operator/(const double& InNum) const;
     ComplexNumbers operator/(const ComplexNumbers& X) const;
     
     /** @brief Transforms polar to cartesian coordinates. */
@@ -47,4 +55,8 @@ struct ComplexNumbers
     /**** STRING OPERATIONS */
     /** @brief Converts the Complex number to a std::string.*/
     std::string ToString() const;
+
+    char* ToString(int& InSize, int Precision = 2);
+    
+    void Print() const;
 };
